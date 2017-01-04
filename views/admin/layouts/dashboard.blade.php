@@ -105,6 +105,18 @@
                                 <!-- /.nav-second-level -->
                             </li>
                         @endif
+
+                        @if ( Auth::user()->role->name == 'Admin' )
+                            <li >
+                                <a href="#"><i class="fa fa-users fa-fw"></i>{{ trans("blogify::navigation.Slide.title") }}<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route ('admin.slide.new') }}"><span class="fa fa-plus fa-fw"></span> {{ trans("blogify::navigation.Slide.new") }}</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

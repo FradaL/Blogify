@@ -40,4 +40,9 @@ return [
     'database' => [
         'title' => ' Backup database'
     ],
+
+    'Slide' => [
+        'title' => ' Slide',
+        'new' => ' New'
+    ]
 ];

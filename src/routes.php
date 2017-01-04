@@ -111,6 +111,8 @@ Route::group($admin, function()
                 'as' => 'admin.categories.restore',
                 'uses' => 'CategoriesController@restore'
             ]);
+
+            Route::get('slides/new', ['as' => 'admin.slide.new', 'uses' => 'SlideController@index'])
         });
 
 
