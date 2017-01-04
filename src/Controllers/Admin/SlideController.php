@@ -5,7 +5,6 @@ namespace jorenvanhocht\Blogify\Controllers\Admin;
 
 class SlideController extends BaseController
 {
-
 	public function index()
 	{
 		return view('blogify::admin.slide.new');
@@ -17,11 +16,6 @@ class SlideController extends BaseController
        $name = $file->getClientOriginalName();
 	   $url =  \Storage::url($name);
        \Storage::disk('local')->put($name,  \File::get($file));
-
        return ("archivo guardado");
-
 	}
-   
-
-
 }

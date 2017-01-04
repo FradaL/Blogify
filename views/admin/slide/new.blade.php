@@ -13,12 +13,12 @@ $editable = (isset($user)) ? "disabled" : null;
 @else
     {!! Form::open( [ 'route' => 'admin.users.store' ] ) !!}
 @endif
-    <div class="row form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+    <div class="row form-group {{ $errors->has('imagen') ? 'has-error' : '' }}">
         <div class="col-sm-2">
-            {!! Form::label('Imagen', trans("blogify::users.form.name.label") ) !!}
+            {!! Form::label('imagen', trans("blogify::users.form.name.label") ) !!}
         </div>
         <div class="col-sm-10">
-            {!! Form::file('file', ['class' => 'form-control form-small', $editable ]) !!}
+            {!! Form::file('file') !!}
         </div>
     </div>
 
