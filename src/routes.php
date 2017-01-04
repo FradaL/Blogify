@@ -113,6 +113,7 @@ Route::group($admin, function()
             ]);
 
             Route::get('slides/new', ['as' => 'admin.slide.new', 'uses' => 'SlideController@index']);
+            Route::post('slides/store', ['as' => 'admin.slide.store', 'uses' => 'SlideController@store']);
         });
 
 

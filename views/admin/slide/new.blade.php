@@ -2,20 +2,20 @@
 $editable = (isset($user)) ? "disabled" : null;
 ?>
 @extends('blogify::admin.layouts.dashboard')
-@section('page_heading', isset($user) ? trans("blogify::users.form.page_title_edit")  : trans("blogify::users.form.page_title_create") )
+@section('page_heading', isset($user) ? trans("blogify::users.form.page_title_edit")  : trans("blogify::users.form.slide.title_slide") )
 @section('section')
 
 @include('blogify::admin.snippets.validation-errors')
 
-@if ( isset($user) )
-    {!! Form::open( [ 'route' => ['admin.users.update', $user->hash] ] ) !!}
+@if ( isset($slide) )
+    {!! Form::open( [ 'route' => ['admin.users.update', $slide->id] ] ) !!}
     {!! Form::hidden('_method', 'put') !!}
 @else
-    {!! Form::open( [ 'route' => 'admin.users.store' ] ) !!}
+    {!! Form::open( [ 'route' => 'admin.slide.store' ] ) !!}
 @endif
     <div class="row form-group {{ $errors->has('imagen') ? 'has-error' : '' }}">
         <div class="col-sm-2">
-            {!! Form::label('imagen', trans("blogify::users.form.name.label") ) !!}
+            {!! Form::label('imagen', trans("blogify::users.form.slide.label") ) !!}
         </div>
         <div class="col-sm-10">
             {!! Form::file('file') !!}

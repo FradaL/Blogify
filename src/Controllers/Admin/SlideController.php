@@ -2,6 +2,7 @@
 
 namespace jorenvanhocht\Blogify\Controllers\Admin;
 
+use jorenvanhocht\Blogify\Models\Slide;
 
 class SlideController extends BaseController
 {
@@ -10,11 +11,14 @@ class SlideController extends BaseController
 		return view('blogify::admin.slide.new');
 	}
 
-	public function save(Request $request)
+	public function store(Request $request)
 	{
 	   $file = $request->file('file');
        $name = $file->getClientOriginalName();
 	   $url =  \Storage::url($name);
+       Slide::create([
+           'source' => $url
+       ]);
        \Storage::disk('local')->put($name,  \File::get($file));
        return ("archivo guardado");
 	}

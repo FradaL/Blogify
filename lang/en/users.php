@@ -47,5 +47,12 @@ return [
         'submit_button' => [
             'value' => 'Save user',
         ],
+
+        'slide' => [
+            'label' => 'Seleccione una imagen',
+            'title_slide' => 'Agregar Imagenes al Slide',
+        ]
+
+
     ],
 ];
