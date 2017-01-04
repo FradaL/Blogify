@@ -43,6 +43,6 @@ return [
 
     'Slide' => [
         'title' => ' Slide',
-        'new' => ' New'
-    ]
+        'new' => ' New',
+    ],
 ];
