@@ -100,6 +100,7 @@ class CreateUsersTable extends Migration
     private function createUsersTable()
     {
         Schema::create('users', function ($table) {
+
             foreach ($this->fields as $field => $value) {
                 $query = $table->$value['type']($field);
 
@@ -121,6 +122,7 @@ class CreateUsersTable extends Migration
     private function updateUsersTable()
     {
         Schema::table('users', function ($table) {
+            $table->dropColumn('name');
             foreach ($this->fields as $field => $value) {
                 if (!Schema::hasColumn('users', $field)) {
                     $type  = $value['type'];
