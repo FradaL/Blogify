@@ -3,6 +3,7 @@
 namespace jorenvanhocht\Blogify\Controllers\Admin;
 
 use jorenvanhocht\Blogify\Models\Slide;
+use jorenvanhocht\Blogify\Requests\Request;
 
 class SlideController extends BaseController
 {
