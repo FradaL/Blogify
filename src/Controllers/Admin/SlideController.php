@@ -20,6 +20,7 @@ class SlideController extends BaseController
        Slide::create([
            'source' => $url
        ]);
+        
        \Storage::disk('local')->put($name,  \File::get($file));
        return ("archivo guardado");
 	}
