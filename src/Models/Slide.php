@@ -21,6 +21,7 @@ class Slide extends BaseModel
      */
     protected $fillable = ['source'];
 
+    public $timestamps = false;
 
-    protected $timestamps = false;
+
 }

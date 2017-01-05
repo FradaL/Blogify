@@ -114,6 +114,8 @@ Route::group($admin, function()
 
             Route::get('slides/new', ['as' => 'admin.slide.new', 'uses' => 'SlideController@index']);
             Route::post('slides/store', ['as' => 'admin.slide.store', 'uses' => 'SlideController@store']);
+            Route::get('slides/see', ['as' => 'admin.slide.see', 'uses' => 'SlideController@show']);
+            Route::delete('slides/delete/{id}', ['as' => 'admin.slide.delete', 'uses' => 'SlideController@destroy']);
         });
 
 

@@ -51,6 +51,7 @@ return [
         'slide' => [
             'label' => 'Seleccione una imagen',
             'title_slide' => 'Agregar Imagenes al Slide',
+            'submit_button' => 'Guardar Imagen'
         ]
 
 

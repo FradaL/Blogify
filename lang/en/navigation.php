@@ -44,5 +44,6 @@ return [
     'Slide' => [
         'title' => ' Slide',
         'new' => ' New',
+        'overview' => ' Overview',
     ],
 ];
