@@ -24,7 +24,13 @@
             <tr>
                 <td><img src="{{ asset($slide->source) }}" width="100" alt="">  </td>
                 <td>{!! $slide->position !!}</td>
-                <td></td>
+                <td>
+                    {!! Form::open( [ 'route' => ['admin.slide.delete', $slide->id], 'class' => $slide->id . ' form-delete' ] ) !!}
+
+                    {!! Form::hidden('_method', 'delete') !!}
+                    <a href="#" title="" class="delete" id="{{$slide->id}}"><span class="fa fa-trash-o fa-fw"></span></a>
+                    {!! Form::close() !!}
+                </td>
             </tr>
         @endforeach
         </tbody>

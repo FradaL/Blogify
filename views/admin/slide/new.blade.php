@@ -11,11 +11,11 @@ $editable = (isset($user)) ? "disabled" : null;
     {!! Form::open( [ 'route' => ['admin.users.update', $slide->id] ] ) !!}
     {!! Form::hidden('_method', 'put') !!}
 @else
-    {!! Form::open( [ 'route' => 'admin.slide.store' ] ) !!}
+    {!! Form::open( [ 'route' => 'admin.slide.store', 'files' => true] ) !!}
 @endif
     <div class="row form-group {{ $errors->has('imagen') ? 'has-error' : '' }}">
         <div class="col-sm-2">
-            {!! Form::label('imagen', trans("blogify::users.form.slide.label") ) !!}
+            {!! Form::label('upload', trans("blogify::users.form.slide.label") ) !!}
         </div>
         <div class="col-sm-10">
             {!! Form::file('file') !!}
@@ -24,7 +24,7 @@ $editable = (isset($user)) ? "disabled" : null;
 
     <div class="row">
         <div class="col-sm-2">
-            {!! Form::submit(trans("blogify::users.form.submit_button.value"), ['class'=>'btn btn-success']) !!}
+            {!! Form::submit(trans("blogify::users.form.slide.submit_button"), ['class'=>'btn btn-success']) !!}
         </div>
     </div>
 

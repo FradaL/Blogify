@@ -4,9 +4,12 @@ namespace jorenvanhocht\Blogify\Models;
 
 
 
+use Rutorika\Sortable\SortableTrait;
+
 class Slide extends BaseModel
 {
 
+    use SortableTrait;
     /**
      * The database table used by the model
      *
