@@ -120,6 +120,23 @@
                                 <!-- /.nav-second-level -->
                             </li>
                         @endif
+                        @if ( Auth::user()->role->name == 'Admin' )
+                            <li>
+                                <a href="#"><i class="fa fa-picture-o fa-fw"></i>{{ trans("blogify::navigation.Gallery.title") }}<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route ('admin.gallery.new') }}"><span class="fa fa-plus fa-fw"></span> {{ trans("blogify::navigation.Gallery.new") }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('admin.gallery.overview') }}"><span class="fa fa-th-list fa-fw"></span> {{ trans("blogify::navigation.Gallery.overview") }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('admin.gallery.overview') }}"><span class="fa fa-th-list fa-fw"></span> {{ trans("blogify::navigation.Gallery.images") }}</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

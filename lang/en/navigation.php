@@ -46,4 +46,11 @@ return [
         'new' => ' New',
         'overview' => ' Overview',
     ],
+
+    'Gallery' => [
+        'title' => ' Gallery',
+        'new' => ' New',
+        'overview' => ' Overview',
+        'images' => ' Add images to Gallery',
+    ],
 ];

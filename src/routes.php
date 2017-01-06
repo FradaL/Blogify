@@ -112,12 +112,21 @@ Route::group($admin, function()
                 'uses' => 'CategoriesController@restore'
             ]);
 
+            //slides
             Route::get('slides/new', ['as' => 'admin.slide.new', 'uses' => 'SlideController@index']);
             Route::post('slides/store', ['as' => 'admin.slide.store', 'uses' => 'SlideController@store']);
             Route::get('slides/see', ['as' => 'admin.slide.see', 'uses' => 'SlideController@show']);
             Route::delete('slides/delete/{id}', ['as' => 'admin.slide.delete', 'uses' => 'SlideController@destroy']);
             Route::post('slides/up/{id}', ['as'=> 'admin.slide.up', 'uses' => 'SlideController@up']);
             Route::post('slides/down/{id}', ['as'=> 'admin.slide.down', 'uses' => 'SlideController@down']);
+
+            //Gallery
+            Route::get('gallery/new', ['as' => 'admin.gallery.new', 'uses' => 'GalleryController@create']);
+            Route::post('gallery/add', ['as' => 'admin.gallery.store', 'uses'=> 'GalleryController@store']);
+            Route::get('gallery/overview', ['as' => 'admin.gallery.overview', 'uses' => 'GalleryController@show']);
+            Route::get('gallery/edit/{id}', ['as' => 'admin.gallery.edit', 'uses' => 'GalleryController@edit']);
+            Route::put('gallery/update/{id}', ['as' => 'admin.gallery.update', 'uses' => 'GalleryController@update']);
+            Route::delete('gallery/delete/{id}', ['as' => 'admin.gallery.delete', 'uses' => 'GalleryController@destroy']);
         });
 
 
