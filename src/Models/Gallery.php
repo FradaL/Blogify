@@ -3,9 +3,13 @@
 namespace jorenvanhocht\Blogify\Models;
 
 
-class Gallery extends BaseModel
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+
+class Gallery extends BaseModel implements HasMedia
 {
 
+    use HasMediaTrait;
     /**
      * The database table used by the model
      *

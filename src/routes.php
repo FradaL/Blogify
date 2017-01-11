@@ -127,6 +127,13 @@ Route::group($admin, function()
             Route::get('gallery/edit/{id}', ['as' => 'admin.gallery.edit', 'uses' => 'GalleryController@edit']);
             Route::put('gallery/update/{id}', ['as' => 'admin.gallery.update', 'uses' => 'GalleryController@update']);
             Route::delete('gallery/delete/{id}', ['as' => 'admin.gallery.delete', 'uses' => 'GalleryController@destroy']);
+
+            //images
+
+            Route::get('gallery/images/new', ['as' => 'admin.images.new', 'uses' => 'ImageController@create']);
+            Route::post('gallery/images/add', ['as' => 'admin.images.store', 'uses' => 'ImageController@store']);
+            Route::get('gallery/images/fields', ['as' => 'admin.images.redirect', 'uses' => 'ImageController@fields']);
+
         });
 
 

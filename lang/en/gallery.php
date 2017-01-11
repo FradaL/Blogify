@@ -27,4 +27,16 @@ return [
         'thead-two' => 'Images',
         'no_results' => 'No Gallerys Found'
     ],
+
+    'gallery' => [
+        'label' => 'Selected Images:',
+        'file' => 'Selected',
+        'selected' => 'Selected Gallery',
+    ],
+    'images' => [
+        'button' => 'Add Data',
+        'file' => 'Selected',
+        'gallery' => 'Selected Gallery',
+        ''
+    ]
 ];

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMediaTable extends Migration {
+class CreateMediaPostTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateMediaTable extends Migration {
      */
     public function up()
     {
-        Schema::create('media', function($table)
+        Schema::create('media_post', function($table)
         {
             $table->increments('id');
             $table->string('hash', 80)->unique();

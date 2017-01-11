@@ -15,7 +15,7 @@ class Media extends BaseModel
      *
      * @var string
      */
-    protected $table = 'media';
+    protected $table = 'media_post';
 
     /**
      * The attributes that are mass assignable
