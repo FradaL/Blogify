@@ -131,7 +131,7 @@
                                         <a href="{{ route ('admin.gallery.overview') }}"><span class="fa fa-th-list fa-fw"></span> {{ trans("blogify::navigation.Gallery.overview") }}</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route ('admin.gallery.overview') }}"><span class="fa fa-th-list fa-fw"></span> {{ trans("blogify::navigation.Gallery.images") }}</a>
+                                        <a href="{{ route ('admin.images.new') }}"><span class="fa fa-th-list fa-fw"></span> {{ trans("blogify::navigation.Gallery.images") }}</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
