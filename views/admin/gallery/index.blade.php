@@ -30,7 +30,7 @@
         @foreach ( $gallerys as $gallery )
             <tr>
                 <td> {{$gallery->name }}</td>
-                <td> </td>
+                <td> {{ $gallery->mediaImage()->count() }} <a href="{{ route('admin.images.info.view', $gallery->id) }}" class="fa fa-eye fa-fw"></a></td>
                 <td>
                     {!! Form::open( [ 'route' => ['admin.gallery.delete', $gallery->id], 'class' => $gallery->id . ' form-delete' ] ) !!}
                     {!! Form::hidden('_method', 'delete') !!}
@@ -41,6 +41,7 @@
                     <button  class="btn btn-info" type="submit" onclick="return confirm('Desea Editar?')"><span class="fa fa-arrow-circle-down fa-fw"></span></button>
                     {!! Form::close() !!}
                 </td>
+
             </tr>
         @endforeach
         </tbody>

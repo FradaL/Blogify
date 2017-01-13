@@ -5,31 +5,29 @@ namespace jorenvanhocht\Blogify\Models;
 use jorenvanhocht\Blogify\Models\Post;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Media extends BaseModel
+class Metadata extends BaseModel
 {
-
-    use SoftDeletes;
 
     /**
      * The database table used by the model
      *
      * @var string
      */
-    protected $table = 'media_post';
+    protected $table = 'metadata';
 
     /**
      * The attributes that are mass assignable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['title', 'description', 'location', 'media_id'];
 
     /**
      * Set or unset the timestamps for the model
      *
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /*
     |--------------------------------------------------------------------------
@@ -41,9 +39,9 @@ class Media extends BaseModel
     |
     */
 
-    public function post()
+    public function mediaimage()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasOne('jorenvanhocht\Blogify\Models\MediaImage', 'id', 'media_id');
     }
 
 

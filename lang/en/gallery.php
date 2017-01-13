@@ -35,8 +35,12 @@ return [
     ],
     'images' => [
         'button' => 'Add Data',
+        'buttonUpdate' => 'Update Data',
         'file' => 'Selected',
         'gallery' => 'Selected Gallery',
-        ''
+        'message' => [
+            'value' => 'Images were added to the gallery'
+        ],
+        'label' => ' Selected images',
     ]
 ];

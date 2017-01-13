@@ -2,20 +2,21 @@
 
 namespace jorenvanhocht\Blogify\Models;
 
-use jorenvanhocht\Blogify\Models\Post;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Media extends BaseModel
+
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+
+class MediaImage extends BaseModel implements HasMedia
 {
 
-    use SoftDeletes;
-
+    use HasMediaTrait;
     /**
      * The database table used by the model
      *
      * @var string
      */
-    protected $table = 'media_post';
+    protected $table = 'media';
 
     /**
      * The attributes that are mass assignable
@@ -41,11 +42,20 @@ class Media extends BaseModel
     |
     */
 
-    public function post()
+    public function gallery()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasOne('jorenvanhocht\Blogify\Models\Gallery', 'id', 'model_id');
     }
 
+    public function data()
+    {
+        return $this->hasOne('jorenvanhocht\Blogify\Models\Gallery', 'media_id');
+    }
+
+    public function meta()
+    {
+        return $this->hasOne('jorenvanhocht\Blogify\Models\Metadata', 'media_id');
+    }
 
 
 

@@ -130,9 +130,20 @@ Route::group($admin, function()
 
             //images
 
+            //return view create of add images in gallery
             Route::get('gallery/images/new', ['as' => 'admin.images.new', 'uses' => 'ImageController@create']);
+            //insert image in gallery
             Route::post('gallery/images/add', ['as' => 'admin.images.store', 'uses' => 'ImageController@store']);
+            //redirect after insert image for complete fields
             Route::get('gallery/images/fields', ['as' => 'admin.images.redirect', 'uses' => 'ImageController@fields']);
+
+            Route::post('gallery/images/info', ['as' => 'admin.images.info.store', 'uses' => 'ImageController@AddDataGallery']);
+            Route::get('gallery/images/edit/{id}', ['as' => 'admin.images.info.view', 'uses' => 'ImageController@ViewUpdate']);
+            Route::put('gallery/images/update', ['as' => 'admin.images.update', 'uses' => 'ImageController@AddDataGallery']);
+
+            //return image in gallery
+            Route::get('gallery/image/update/{imageId}', ['as' => 'admin.gallery.images.edit', 'uses' => 'ImageController@EditImage']);
+
 
         });
 
