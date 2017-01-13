@@ -20,7 +20,7 @@ $editable = (isset($user)) ? "disabled" : null;
                     <?php $x = $image->gallery->getMedia(); ?>
                     <tr>
                         <td><img src="{{ asset($x[$count]->getUrl()) }}" class="" alt="" style="max-width: 200px; min-width: 200px; max-height: 150px; min-height: 150px;"></td>
-                        <td><a  class="btn btn-info"  href="{{ route('admin.gallery.images.edit', $image->id) }}"> </a></td>
+                        <td><a  class="btn btn-info"  href="{{ route('admin.gallery.images.edit', $image->id) }}"><span class="fa fa-pencil fa-fw"></span> </a></td>
                     </tr>
                     <?php $count++ ?>
                 @endforeach
