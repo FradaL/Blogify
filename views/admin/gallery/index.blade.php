@@ -30,7 +30,12 @@
         @foreach ( $gallerys as $gallery )
             <tr>
                 <td> {{$gallery->name }}</td>
-                <td> {{ $gallery->mediaImage()->count() }} <a href="{{ route('admin.images.info.view', $gallery->id) }}" class="fa fa-eye fa-fw"></a></td>
+                <td> {{ $gallery->mediaImage()->count() }}
+                    @if($gallery->mediaImage()->count() > 0)
+                    <a href="{{ route('admin.images.info.view', $gallery->id) }}" class="fa fa-eye fa-fw"></a>
+                    @else
+                        </td>
+                    @endif
                 <td>
                     {!! Form::open( [ 'route' => ['admin.gallery.delete', $gallery->id], 'class' => $gallery->id . ' form-delete' ] ) !!}
                     {!! Form::hidden('_method', 'delete') !!}
