@@ -17,6 +17,7 @@ class GalleryController extends BaseController
 
     public function store(GalleryRequest $request)
     {
+        $request['slug'] = str_slug($request->name);
         Gallery::create($request->all());
 
         Session::flash('success', 'Gallery Created Successful');
