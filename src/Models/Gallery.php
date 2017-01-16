@@ -33,4 +33,18 @@ class Gallery extends BaseModel implements HasMedia
         return $this->hasMany('jorenvanhocht\Blogify\Models\MediaImage', 'model_id');
     }
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($gallery)
+        {
+            $gallery->mediaImage()->get()->each(function ($media, $key)
+            {
+                $media->meta()->delete();
+            });
+        });
+    }
+
+
 }
