@@ -30,20 +30,20 @@
         @foreach ( $gallerys as $gallery )
             <tr>
                 <td> {{$gallery->name }}</td>
-                <td> {{ $gallery->mediaImage()->count() }}
-                    @if($gallery->mediaImage()->count() > 0)
-                    <a href="{{ route('admin.images.info.view', $gallery->id) }}" class="fa fa-eye fa-fw"></a>
-                    @else
-                        </td>
-                    @endif
+                <td> {{ $gallery->mediaImage()->count() }}   </td>
+
                 <td>
+                    @if($gallery->mediaImage()->count() > 0)
+                        <a href="{{ route('admin.images.info.view', $gallery->id) }}" class="btn btn-info"><span class="fa fa-eye fa-fw"></span></a>
+                    @else
+                    @endif
+                    {!! Form::open( [ 'route' => ['admin.gallery.edit', $gallery], 'name' => 'down', 'class' => 'clase' ] ) !!}
+                    {!! Form::hidden('_method', 'get') !!}
+                    <button  class="btn btn-info" type="submit" onclick="return confirm('Desea Editar?')"><span class="fa fa-pencil fa-fw"></span></button>
+                    {!! Form::close() !!}
                     {!! Form::open( [ 'route' => ['admin.gallery.delete', $gallery->id], 'class' => $gallery->id . ' form-delete' ] ) !!}
                     {!! Form::hidden('_method', 'delete') !!}
                     <a href="#" title="" class="btn btn-info delete" id="{{$gallery->id}}"><span class="fa fa-trash-o fa-fw"></span></a>
-                    {!! Form::close() !!}
-                    {!! Form::open( [ 'route' => ['admin.gallery.edit', $gallery], 'name' => 'down', 'class' => 'clase' ] ) !!}
-                    {!! Form::hidden('_method', 'get') !!}
-                    <button  class="btn btn-info" type="submit" onclick="return confirm('Desea Editar?')"><span class="fa fa-arrow-circle-down fa-fw"></span></button>
                     {!! Form::close() !!}
                 </td>
 
