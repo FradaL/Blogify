@@ -138,13 +138,20 @@ Route::group($admin, function()
             Route::get('gallery/images/fields', ['as' => 'admin.images.redirect', 'uses' => 'ImageController@fields']);
 
             Route::post('gallery/images/info', ['as' => 'admin.images.info.store', 'uses' => 'ImageController@AddDataGallery']);
+            //view images in gallery
             Route::get('gallery/images/edit/{id}', ['as' => 'admin.images.info.view', 'uses' => 'ImageController@ViewUpdate']);
+
             Route::put('gallery/images/update', ['as' => 'admin.images.update', 'uses' => 'ImageController@AddDataGallery']);
 
-            //return image in gallery
+            //Edit image exists in gallery
             Route::get('gallery/image/update/{imageId}', ['as' => 'admin.gallery.images.edit', 'uses' => 'ImageController@EditImage']);
 
+            //delete image in gallery
+            Route::delete('gallery/image/delete/{id}', ['as' => 'admin.gallery.images.delete', 'uses' => 'ImageController@destroy']);
 
+            //up and down image position
+            Route::post('images/up/{id}', ['as'=> 'admin.gallery.images.up', 'uses' => 'ImageController@up']);
+            Route::post('images/down/{id}', ['as'=> 'admin.gallery.images.down', 'uses' => 'ImageController@down']);
         });
 
 

@@ -67,7 +67,7 @@ class ImageController extends BaseController
     public function ViewUpdate($id)
     {
         $gallery = Gallery::findOrFail($id);
-        $media = $gallery->mediaImage;
+        $media = $gallery->mediaImage->sortBy('order_column');
 
         return view('blogify::admin.gallery.images.view', compact('media'));
     }
@@ -79,6 +79,36 @@ class ImageController extends BaseController
         $img = $src->where('id', $meta->media_id)->first();
 
         return view('blogify::admin.gallery.images.edit', compact('meta', 'img'));
+    }
+
+    public function destroy($id)
+    {
+        $img = MediaImage::find($id);
+        $img->meta()->delete();
+        $img->delete();
+
+        Session::flash('success', 'Gallery Deleted Successful');
+        return redirect()->back();
+    }
+
+    public function up($id)
+    {
+
+        $entity = MediaImage::find($id);
+        $entity->order_column = $entity->order_column - 1;
+        $entity->save();
+
+        return redirect()->back();
+    }
+
+    public function down($id)
+    {
+
+        $entity = MediaImage::find($id);
+        $entity->order_column = $entity->order_column + 1;
+        $entity->save();
+
+        return redirect()->back();
     }
 
 }

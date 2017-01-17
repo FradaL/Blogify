@@ -4,18 +4,31 @@ namespace jorenvanhocht\Blogify\Models;
 
 
 
+
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+
+
+
+use Spatie\MediaLibrary\SortableTrait;
 
 class MediaImage extends BaseModel implements HasMedia
 {
 
     use HasMediaTrait;
+    use SortableTrait;
+
     /**
      * The database table used by the model
      *
      * @var string
      */
+
+    public $sortable = [
+        'order_column_name' => 'order_column',
+        'sort_when_creating' => true,
+    ];
+
     protected $table = 'media';
 
     /**
@@ -56,6 +69,7 @@ class MediaImage extends BaseModel implements HasMedia
     {
         return $this->hasOne('jorenvanhocht\Blogify\Models\Metadata', 'media_id');
     }
+
 
 
 
