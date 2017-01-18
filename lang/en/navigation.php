@@ -53,4 +53,9 @@ return [
         'overview' => ' Overview',
         'images' => ' Add images to Gallery',
     ],
+
+    'likes' => [
+        'title' => ' Likes',
+        'overview' => ' Overview'
+    ],
 ];
