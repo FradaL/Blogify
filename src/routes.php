@@ -30,7 +30,11 @@ if ($use_default_routes) {
             'as' => 'comments.store',
             'uses' => 'CommentsController@store'
         ]);
+
+
     });
+
+    Route::get('blog/post/like/{id}', ['as' => 'user.post.like', 'uses' => 'jorenvanhocht\Blogify\Controllers\Admin\LikeController@postLike']);
 }
 ///////////////////////////////////////////////////////////////////////////
 // Logged in user routes
@@ -60,6 +64,7 @@ $admin = [
 
 Route::group($admin, function()
 {
+
     Route::group(['middleware' => 'BlogifyGuest'], function() {
         // Login
         Route::get('login', [
@@ -71,6 +76,9 @@ Route::group($admin, function()
             'as'    =>  'admin.login.post',
             'uses'  =>  'AuthController@login'
         ]);
+
+
+
     });
 
     Route::group(['middleware' => 'BlogifyAdminAuthenticate'], function()
