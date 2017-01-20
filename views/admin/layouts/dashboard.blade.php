@@ -142,7 +142,7 @@
                                 <a href="#"><i class="fa fa-thumbs-o-up fa-fw"></i>{{ trans("blogify::navigation.likes.title") }}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="{{ route ('admin.gallery.new') }}"><span class="fa fa-plus fa-fw"></span> {{ trans("blogify::navigation.likes.overview") }}</a>
+                                        <a href="{{ route ('admin.likes.overview') }}"><span class="fa fa-plus fa-fw"></span> {{ trans("blogify::navigation.likes.overview") }}</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
