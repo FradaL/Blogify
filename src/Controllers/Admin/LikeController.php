@@ -4,8 +4,10 @@ namespace jorenvanhocht\Blogify\Controllers\Admin;
 
 
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use File;
+use jorenvanhocht\Blogify\Models\Like;
 use jorenvanhocht\Blogify\Models\Post;
 use jorenvanhocht\Blogify\Models\Slide;
 
@@ -29,6 +31,16 @@ class LikeController extends BaseController
       return  redirect()->back();
   }
 
+  public function overview()
+  {
 
+      $likes = Like::groupBy('likeable_id')
+                    ->get([DB::raw('*, count(*) as total'), 'likeable_id']);
+
+
+
+      return view('blogify::admin.likes.overview', compact('likes'));
+
+  }
 
 }

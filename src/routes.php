@@ -160,6 +160,8 @@ Route::group($admin, function()
             //up and down image position
             Route::post('images/up/{id}', ['as'=> 'admin.gallery.images.up', 'uses' => 'ImageController@up']);
             Route::post('images/down/{id}', ['as'=> 'admin.gallery.images.down', 'uses' => 'ImageController@down']);
+
+            Route::get('likes/overview', ['as' => 'admin.likes.overview', 'uses' => 'LikeController@overview']);
         });
 
 
