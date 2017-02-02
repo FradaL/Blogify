@@ -25,6 +25,7 @@ class GalleryRequest extends Request
     {
         return [
             'name'		=> 'required',
+            'description' => 'required'
         ];
     }
 

@@ -11,6 +11,7 @@ return [
 
         'name' => [
             'label' => 'Name:',
+            'labeld' => 'Description:',
         ],
 
         'submit_button' => [
@@ -19,6 +20,7 @@ return [
 
         'placeholder' => [
             'value' => 'Name Gallery',
+            'valued' => 'Description',
         ],
     ],
 

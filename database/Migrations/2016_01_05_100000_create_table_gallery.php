@@ -13,6 +13,7 @@ class CreateTableGallery extends Migration {
             $table->string('name');
             $table->string('slug');
             $table->integer('position');
+            $table->string('description', 200);
             $table->timestamps();
         });
     }
