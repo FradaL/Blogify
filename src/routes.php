@@ -35,6 +35,7 @@ if ($use_default_routes) {
     });
 
     Route::get('blog/post/like/{id}', ['as' => 'user.post.like', 'uses' => 'jorenvanhocht\Blogify\Controllers\Admin\LikeController@postLike']);
+    Route::get('galerias/{slug}/like/{id}', ['as' => 'user.image.like', 'uses' => 'jorenvanhocht\Blogify\Controllers\Admin\LikeController@imageLike']);
 }
 ///////////////////////////////////////////////////////////////////////////
 // Logged in user routes

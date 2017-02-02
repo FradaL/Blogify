@@ -25,7 +25,7 @@ class Gallery extends BaseModel implements HasMedia
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'description', 'slug'];
 
 
     public function mediaImage()

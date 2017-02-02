@@ -44,6 +44,11 @@ class Metadata extends BaseModel
         return $this->hasOne('jorenvanhocht\Blogify\Models\MediaImage', 'id', 'media_id');
     }
 
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
 
 
 
