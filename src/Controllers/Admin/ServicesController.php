@@ -36,12 +36,12 @@ class ServicesController extends BaseController
 
       public function store(ServiceRequest $request)
       {
-          dd($request->file('image'));
+
           $request['slug'] = str_slug($request->name);
           $newService = Services::create($request->all());
           $newService->addMedia($request->file('image'))->toMediaLibrary();
 
-          session()->flash('key', 'Status');
+          session()->flash('message', 'Se ha Creado El Servicio con éxito');
 
           return redirect()->route('admin.services.index');
       }
@@ -66,6 +66,8 @@ class ServicesController extends BaseController
               $service->save();
           }
 
+          session()->flash('message', 'Se ha Actualizado el Servicio con éxito');
+
           return redirect()->route('admin.services.index');
       }
 
@@ -73,6 +75,8 @@ class ServicesController extends BaseController
       {
           $service = Services::find($id);
           $service->delete();
+
+          session()->flash('message', 'Se ha Eliminado El Servicio con éxito');
 
           return redirect()->back();
 

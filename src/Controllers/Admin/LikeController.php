@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use File;
 use jorenvanhocht\Blogify\Models\Like;
+use jorenvanhocht\Blogify\Models\MediaImage;
+use jorenvanhocht\Blogify\Models\Metadata;
 use jorenvanhocht\Blogify\Models\Post;
 use jorenvanhocht\Blogify\Models\Slide;
 
@@ -37,10 +39,17 @@ class LikeController extends BaseController
       $likes = Like::groupBy('likeable_id')
                     ->get([DB::raw('*, count(*) as total'), 'likeable_id']);
 
-
-
       return view('blogify::admin.likes.overview', compact('likes'));
 
   }
+
+    public function imageLike($request, $id)
+    {
+        $img = Metadata::find($id);
+
+        $img->likes()->create(['address_ip' => \Request::ip()]);
+
+        return  redirect()->back();
+    }
 
 }

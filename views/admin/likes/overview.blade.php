@@ -24,9 +24,16 @@
 
         @foreach ( $likes as $like )
             <tr>
-                <td> {{$like->likeable->title }}</td>
-                <td> {{ $like->likeable->user->username}} </td>
-                <td> {{ $like->total }} </td>
+
+            @if($like->likeable_type == 'jorenvanhocht\Blogify\Models\Metadata')
+                    <td> {{$like->likeable->title }}</td>
+                    <td> Visitante </td>
+                    <td> {{ $like->total }} </td>
+                @else
+                    <td> {{$like->likeable->title }}</td>
+                    <td> {{ $like->likeable->user->username}} </td>
+                    <td> {{ $like->total }} </td>
+                @endif
             </tr>
         @endforeach
         </tbody>
