@@ -3,7 +3,7 @@
 namespace jorenvanhocht\Blogify\Requests;
 
 
-class ImageUploadRequest extends Request
+class UpdateServiceRequest extends Request
 {
 
     /**
@@ -24,7 +24,10 @@ class ImageUploadRequest extends Request
     public function rules()
     {
         return [
-            'upload'		=> 'required|image|max:5000',
+            'name'		=> 'required',
+            'description' => 'required',
+            'image' => ''
+
         ];
     }
 

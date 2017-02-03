@@ -58,4 +58,10 @@ return [
         'title' => ' Likes',
         'overview' => ' Overview'
     ],
+
+    'services' =>[
+        'title' => ' Services',
+        'new' => ' New',
+        'overview' => ' Overview',
+    ],
 ];

@@ -148,6 +148,20 @@
                                 <!-- /.nav-second-level -->
                             </li>
                         @endif
+                        @if ( Auth::user()->role->name == 'Admin' )
+                            <li>
+                                <a href="#"><i class="fa fa-cubes fa-fw"></i>{{ trans("blogify::navigation.services.title") }}<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="{{ route ('admin.services.new') }}"><span class="fa fa-plus fa-fw"></span> {{ trans("blogify::navigation.services.new") }}</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route ('admin.services.index') }}"><span class="fa fa-plus fa-fw"></span> {{ trans("blogify::navigation.services.overview") }}</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

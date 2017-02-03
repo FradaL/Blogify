@@ -162,7 +162,16 @@ Route::group($admin, function()
             Route::post('images/up/{id}', ['as'=> 'admin.gallery.images.up', 'uses' => 'ImageController@up']);
             Route::post('images/down/{id}', ['as'=> 'admin.gallery.images.down', 'uses' => 'ImageController@down']);
 
+            //likes
             Route::get('likes/overview', ['as' => 'admin.likes.overview', 'uses' => 'LikeController@overview']);
+
+            //Services
+            Route::get('services/new', ['as' => 'admin.services.new', 'uses' => 'ServicesController@create']);
+            Route::post('services/add', ['as' => 'admin.services.store', 'uses' => 'ServicesController@store']);
+            Route::get('services/index', ['as' => 'admin.services.index', 'uses' => 'ServicesController@index']);
+            Route::get('services/edit/{id}', ['as' => 'admin.services.edit', 'uses' => 'ServicesController@Edit']);
+            Route::put('services/update/{id}', ['as' => 'admin.services.update', 'uses' => 'ServicesController@update']);
+            Route::delete('services/delete/{id}', ['as' => 'admin.services.delete', 'uses' => 'ServicesController@destroy']);
         });
 
 
