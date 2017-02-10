@@ -1,5 +1,5 @@
 @extends('blogify::admin.layouts.dashboard')
-@section('page_heading', trans("blogify::gallery.overview.page_title") )
+@section('page_heading', trans("blogify::services.services.title") )
 
 @section('section')
 
